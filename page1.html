@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: "Pixelify Sans", serif;
+            background-image: url(image/bgg.jpg);
+            min-height: 100vh;
+            display: flex;
+            align-items:center;
+            justify-content: center;
+           
+        }
+
+        .container {
+            text-align: center;
+            width:700px;
+            height: 400px;
+        }
+        .container img {
+            width: 150px;
+            margin-bottom: -50px;
+        }
+        .container h2{
+            color: rgb(172, 54, 74);
+            font-size: 50px;
+            font-weight: 900;
+            letter-spacing: 1.8px;
+        }
+        .container button{
+            padding:12px;
+            font-size: 32px;
+            font-weight: 600;
+            border: 2px solid #000;
+            border-radius: 10px;
+            font-family: "Pixelify Sans", serif;
+            background-color: tomato;
+        }
+        .container button:hover{
+            background-color: yellow;
+        }
+            @media screen and (max-width: 768px) {
+            .container {
+                width: 90%;
+                height: auto;
+                padding: 20px;
+            }
+
+            .container img {
+                width: 120px;
+                margin-bottom: -40px;
+            }
+
+            .container h2 {
+                font-size: 30px;
+            }
+
+            .container button {
+                font-size: 24px;
+                padding: 10px;
+            }
+        }
+
+        /* Media Query for very small screens */
+        @media screen and (max-width: 480px) {
+            .container h2 {
+                font-size: 24px;
+            }
+
+            .container button {
+                font-size: 20px;
+                padding: 8px;
+            }
+        }
+        
+        
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <img src="image/heart.png">
+        <h2>DEAR HUBBY,</h2>
+        <h2>LET'S PLAY WITH ME ?</h2>
+        <a href="page2.html">
+            <button>START</button>
+        </a>
+    </div>
+
+
+</body>
+
+</html>

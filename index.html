@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Us</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-image: url(image/bgg.jpg);
+            object-fit: cover;
+            object-position: center;
+            text-align: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            margin: 0;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column; /* Ensure vertical layout on small screens */
+        }
+
+        .image img {
+            width: 200px;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .content {
+            margin-top: 10px;
+        }
+
+        #passcode {
+            width: 70%;
+            padding: 8px;
+            font-size: 18px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            background: transparent;
+            text-align: center;
+            margin-left: 40px;
+        }
+
+        /* Adjusting the keypad buttons layout */
+        .keypad {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 buttons per row */
+            gap: 10px;
+            justify-items: center;
+            width: 100%;
+        }
+
+        .keypad button {
+            margin: 0;
+            padding: 18px 30px;
+            background-color: pink;
+            border: 2px solid #000;
+            cursor: pointer;
+            border-radius: 30%;
+            font-size: 20px;
+            transition: background-color 0.2s;
+            width: 80%; /* Make buttons responsive */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .keypad button img {
+            max-width: 30px; /* Limit the image size */
+            max-height: 30px;
+        }
+
+        .keypad button:hover {
+            background-color: #f4d6d6;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+                padding: 15px;
+                flex-direction: column; /* Ensure vertical alignment */
+            }
+
+            .keypad button {
+                padding: 15px 25px;
+                font-size: 18px;
+            }
+
+            #passcode {
+                width: 80%;
+                font-size: 16px;
+            }
+
+            /* Hide the image on smaller screens */
+            .image {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                width: 80%;
+                padding: 10px;
+            }
+
+            .keypad button {
+                margin: 3px;
+                padding: 12px 20px;
+                font-size: 16px;
+            }
+
+            #passcode {
+                width: 85%;
+                font-size: 14px;
+            }
+
+            /* Hide the image on mobile screens */
+            .image {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="image">
+            <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExenBjZmF1dXpzb3FqZXFmanE2eWUyN3cyZmlyaWI1NDBwa3I5anNieiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/XZgemSAbwljyNWg3KL/giphy.gif"
+                alt="image">
+        </div>
+        <div class="content">
+            <h2 id="passcode-heading">Enter passcode</h2>
+            <input type="password" id="passcode" placeholder="" style="display: none;">
+            <div class="keypad">
+                <button onclick="enterDigit('1')">1</button>
+                <button onclick="enterDigit('2')">2</button>
+                <button onclick="enterDigit('3')">3</button>
+                <button onclick="enterDigit('4')">4</button>
+                <button onclick="enterDigit('5')">5</button>
+                <button onclick="enterDigit('6')">6</button>
+                <button onclick="enterDigit('7')">7</button>
+                <button onclick="enterDigit('8')">8</button>
+                <button onclick="enterDigit('9')">9</button>
+                <button onclick="removeLastDigit()">clear</button>
+                <button onclick="enterDigit('0')">0</button>
+                <button onclick="checkPasscode()">submit</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let passcode = ""
+
+        function enterDigit(digit) {
+            if (passcode.length < 4) {
+                passcode += digit;
+                document.getElementById("passcode").value = passcode;
+                document.getElementById("passcode").style.display = "block";
+                document.getElementById("passcode-heading").style.display = "none";
+
+                // Automatically check passcode when it reaches 4 digits
+                if (passcode.length === 4) {
+                    checkPasscode();
+                }
+            }
+        }
+
+        function clearPasscode() {
+            passcode = "";
+            document.getElementById("passcode").value = "";
+        }
+
+        // Function to remove the last digit
+        function removeLastDigit() {
+            passcode = passcode.slice(0, -1); // Remove last character
+            document.getElementById("passcode").value = passcode; // Update passcode input
+        }
+
+        function checkPasscode() {
+            const correctPasscode = "1218";
+            let passcode = document.getElementById("passcode").value;
+            if (passcode == correctPasscode) {
+                window.location.href = "page1.html";
+            } else {
+                alert("Incorrect passcode! Try again");
+                clearPasscode();
+            }
+        }
+    </script>    
+</body>
+
+</html>

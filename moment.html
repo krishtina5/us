@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>us1</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+
+    <style>
+         body {
+            font-family: "Pixelify Sans", serif;
+            background-image: url(image/bgg.jpg);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+        }
+
+        .container1 {
+            width: 90%;  /* Make container responsive */
+            max-width: 800px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            background-color: white; /* Background color for better readability */
+            position: relative;
+        }
+
+        /* Close button styles */
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 30px;
+            color: black;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .close-btn:hover {
+            color: red;
+        }
+
+        .box {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+        }
+
+        .img1 img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
+
+        .content1 {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            background: #d8b5f3;
+            padding: 4px 30px;
+            border-radius: 20px;
+            border: 2px solid #000;
+        }
+
+        h2 {
+            font-size: 25px;
+        }
+
+        .search-icon {
+            width: 30px;
+            height: 30px;
+            background: #ca8ef8;
+            padding: 8px;
+            border-radius: 50%;
+        }
+
+        .time {
+            font-size: 30px;
+            color: #6200ad;
+            font-weight: 1200;
+            display: inline;
+        }
+
+        .date {
+            text-align: center;
+        }
+
+        .timer {
+            margin-top: 20px;
+            font-size: 80px;
+            font-weight: 800;
+            color: #6200ad;
+        }
+
+        .timer:hover {
+            color: rgb(108, 0, 4);
+            transition: background-color .5s;
+        }
+
+        .labels {
+            font-size: 30px;
+            color: #6200ad;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .button {
+            text-align: center;
+            margin-top: 40px;
+            width: 150px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: #d8b5f3;
+            padding: 4px 30px;
+            border-radius: 20px;
+            border: 2px solid #000;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: antiquewhite;
+            transition: background-color .5s;
+        }
+
+        .button img {
+            width: 25px;
+            color: #6200ad;
+        }
+
+        .button span {
+            font-size: 30px;
+            font-weight: 600;
+        }
+
+        .icons {
+            margin-top: 30px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .icons img {
+            width: 30px;
+        }
+
+        .button a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        /* Media queries for responsive design */
+        @media (max-width: 768px) {
+            .container1 {
+                padding: 20px;
+                max-width: 100%; /* Allow it to take full width on small screens */
+            }
+
+            h2 {
+                font-size: 20px;
+                text-align: center;
+            }
+
+            .timer {
+                font-size: 60px;
+            }
+
+            .labels {
+                font-size: 18px;
+                gap: 20px;
+            }
+
+            .button {
+                width: 120px;
+                height: 45px;
+            }
+
+            .box {
+                flex-direction: column; /* Stack elements on smaller screens */
+                align-items: center;
+            }
+
+            .img1 img {
+                width: 80px;
+                height: 80px;
+            }
+
+            .icons img {
+                width: 25px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .box {
+                margin-bottom: 20px;
+            }
+
+            .timer {
+                font-size: 50px;
+            }
+
+            .content1 {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .search-icon {
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container1">
+        <!-- Close button (cross sign) -->
+        <button class="close-btn" onclick="window.history.back();">×</button>
+        
+        <div class="box">
+            <div class="img1">
+                <img src="image/us.jpeg" alt="us">
+            </div>
+            <div class="content1">
+                <h2>How long have we been together?</h2>
+                <img src="image/bgicon2.png" class="search-icon">
+            </div>
+        </div>
+        <div class="date">
+            <h2 class="time">4 YEARS 1 MONTH</h2>
+            <div class="timer" id="timer">1511:18:04:42</div>
+            <div class="labels">
+                <span>Days</span>
+                <span>Hrs</span>
+                <span>Mins</span>
+                <span>Secs</span>
+            </div>
+        </div>
+
+        <div class="icons">
+            <img src="image/bgicon2.png" class="heart-icon">
+            <img src="image/bgicon2.png" class="heart-icon">                    
+            <img src="image/bgicon2.png" class="heart-icon">
+            <img src="image/bgicon2.png" class="heart-icon">
+        </div>
+    </div>
+
+    <script>
+        function formatTime(time) {
+            let days = Math.floor(time / (1000 * 60 * 60 * 24));
+            let hours = Math.floor((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            let minutes = Math.floor((time % (1000 * 60 * 60)) / (1000 * 60));
+            let seconds = Math.floor((time % (1000 * 60)) / 1000);
+            return (
+                String(days).padStart(2, '0') + ':' +
+                String(hours).padStart(2, '0') + ':' +
+                String(minutes).padStart(2, '0') + ':' +
+                String(seconds).padStart(2, '0')
+            );
+        }
+
+        function updateTimer() {
+            let startTime = new Date('2020-12-18T00:00:00'); // Set your start date here
+            let currentTime = new Date();
+            let elapsedTime = currentTime - startTime;
+            document.getElementById('timer').textContent = formatTime(elapsedTime);
+        }
+
+        setInterval(updateTimer, 1000);
+        updateTimer(); // Initial call to display the timer immediately
+    </script>
+</body>
+
+</html>
